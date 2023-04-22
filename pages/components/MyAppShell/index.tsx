@@ -7,9 +7,7 @@ const MyAppShell: React.FC<React.PropsWithChildren<AppShellProps>> = ({
 }) => {
   return (
     <AppShell
-      // className={classes.main}
       padding="md"
-      // navbar={<GameList setCurrentMap={setCurrentMap} />}
       header={
         <Header height={60} p="xl">
           Здесь мы будем собирать статистику всех

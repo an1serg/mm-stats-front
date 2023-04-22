@@ -23,6 +23,11 @@ function MainLink({ icon, color, label, onClick, currentMap }: MainLinkProps) {
     Dust2: "https://www.hltv.org/img/static/maps/dust2.png",
     Mirage: "https://www.hltv.org/img/static/maps/mirage.png",
     Cache: "https://www.hltv.org/img/static/maps/cache.png",
+    Inferno: "https://www.hltv.org/img/static/maps/inferno.png",
+    Nuke: "https://www.hltv.org/img/static/maps/nuke.png",
+    Ancient: "https://www.hltv.org/img/static/maps/ancient.png",
+    Anubis: "https://www.hltv.org/img/static/maps/anubis.png",
+    Overpass: "https://www.hltv.org/img/static/maps/overpass.png",
   };
   const leftWinBackground =
     "linear-gradient(90deg, rgba(28,158,0,1) 0%, rgba(255,255,255,0) 100%)";

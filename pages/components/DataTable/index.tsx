@@ -1,12 +1,20 @@
 import { Text } from "@mantine/core";
 import { DataTable } from "mantine-datatable";
 import { Map } from "../LoadData";
+import { useQuery } from "react-query";
+import { getStatsByGameId } from "../GameList/gameListFetchs";
 
 interface GettingStartedExampleProps {
-  map?: Map;
+  mapId: number;
 }
 
-function GettingStartedExample({ map }: GettingStartedExampleProps) {
+function GettingStartedExample({ mapId }: GettingStartedExampleProps) {
+  const { data, isSuccess } = useQuery({
+    queryFn: () => getStatsByGameId(mapId),
+    queryKey: [`statsByGameId${mapId}`],
+  });
+  console.log(data);
+  console.log(mapId, "mapId");
   return (
     <DataTable
       withBorder
@@ -14,9 +22,7 @@ function GettingStartedExample({ map }: GettingStartedExampleProps) {
       withColumnBorders
       striped
       highlightOnHover
-      // provide data
-      records={map?.players}
-      // define columns
+      records={data?.stats}
       columns={[
         {
           accessor: "nickname",
@@ -33,8 +39,8 @@ function GettingStartedExample({ map }: GettingStartedExampleProps) {
           textAlignment: "center",
         },
         {
-          accessor: "adr",
-          title: "ADR",
+          accessor: "hs",
+          title: "HS %",
           textAlignment: "center",
         },
         {
@@ -42,21 +48,7 @@ function GettingStartedExample({ map }: GettingStartedExampleProps) {
           title: "KR",
           textAlignment: "center",
         },
-        {
-          accessor: "ef",
-          title: "EF",
-          textAlignment: "center",
-        },
-        {
-          accessor: "ud",
-          title: "UD",
-          textAlignment: "center",
-        },
       ]}
-      // execute this callback when a row is clicked
-      /*onRowClick={({ name, party, bornIn }) =>
-          alert(`You clicked on ${name}, a ${party.toLowerCase()} president born in ${bornIn}`)
-        }*/
     />
   );
 }

@@ -12,13 +12,10 @@ import { Children, useState } from "react";
 import { Map } from "./components/LoadData";
 const inter = Inter({ subsets: ["latin"] });
 
-// const getMapData = async (context) => console.log(context);
-
 export default function Home() {
-  // const { data, isLoading, isFetching } = useQuery("maps", getMapData);
-  // console.log(data);
   const { classes } = useStyles();
-  const [currentMap, setCurrentMap] = useState<Map>();
+  const [currentMap, setCurrentMap] = useState<number>();
+  console.log(currentMap, "currentMap");
   return (
     <>
       <Head>
@@ -47,7 +44,7 @@ export default function Home() {
             },
           })}
         >
-          {<GettingStartedExample map={currentMap} />}
+          {<GettingStartedExample mapId={currentMap} />}
         </AppShell>
       </main>
     </>
